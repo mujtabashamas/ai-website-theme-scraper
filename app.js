@@ -46,7 +46,7 @@ async function generateBrandSummary(title, description, bodyText) {
         content:
           `Read the following content and summarize the brand in 2–3 sentences as if writing a ` +
           `brand profile for a design system. Begin with the brand name, then add key specifics. ` +
-          `Keep the original wording as close as possible and avoid generic fluff:\n\n` +
+          `Keep the original wording as close as possible and avoid generic fluff. Do not wrap the brand name in asterisks or symbols:\n\n` +
           fullText
       }
     ],
@@ -54,6 +54,7 @@ async function generateBrandSummary(title, description, bodyText) {
   });
   return res.choices[0]?.message?.content?.trim() || '';
 }
+
 // ————— Scraper —————
 
 async function scrapeBrandKitFromUrl(inputUrl) {
